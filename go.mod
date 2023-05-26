@@ -1,4 +1,4 @@
-module im-1
+module faseIM
 
 go 1.18
 
