@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="">
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 数据库初始化">
+      <change afterPath="$PROJECT_DIR$/app/controller/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/service/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/util/md5.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/util/parse.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/util/resp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/util/string.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +59,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RunManager">
@@ -90,7 +95,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 添加登录接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加登录接口" />
+    <MESSAGE value="feat: 数据库初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 数据库初始化" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fastIM/app/controller"
 	"log"
 	"net/http"
 	"text/template"
@@ -20,6 +21,8 @@ func registerView() {
 }
 
 func main() {
+	http.HandleFunc("/user/login", controller.UserLogin)
+
 	// 提过静态资源目录支持
 	http.Handle("/asset/", http.FileServer(http.Dir(".")))
 	http.Handle("/resource", http.FileServer(http.Dir(".")))
