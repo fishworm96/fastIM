@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fastIM/app/model"
 	"fastIM/app/service"
 	"fastIM/app/util"
 	"net/http"
@@ -25,5 +26,17 @@ func UserLogin(writer http.ResponseWriter, request *http.Request) {
 		util.RespFail(writer, err.Error())
 	} else {
 		util.RespOk(writer, loginUser, "")
+	}
+}
+
+// UsreRegister 用户注册
+func UserRegister(writer http.ResponseWriter, request *http.Request) {
+	var user model.User
+	util.Bind(request, &user)
+	user, err := UserService.UserRegister(user.Mobile, user.Passwd, user.Nickname, user.Avatar, user.Sex)
+	if err != nil {
+		util.RespFail(writer, err.Error())
+	} else {
+		util.RespOk(writer, user, "")
 	}
 }

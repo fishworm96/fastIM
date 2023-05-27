@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 数据库初始化">
-      <change afterPath="$PROJECT_DIR$/app/controller/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/util/md5.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/util/parse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/util/resp.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/util/string.go" afterDir="false" />
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加登录接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,9 +90,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 添加登录接口" />
     <MESSAGE value="feat: 数据库初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 数据库初始化" />
+    <MESSAGE value="feat: 添加登录接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加登录接口" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
