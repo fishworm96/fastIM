@@ -23,6 +23,7 @@ func registerView() {
 func main() {
 	http.HandleFunc("/user/login", controller.UserLogin)
 	http.HandleFunc("/user/register", controller.UserRegister)
+	http.HandleFunc("/contact/add_friend", controller.AddFriend)
 
 	// 提过静态资源目录支持
 	http.Handle("/asset/", http.FileServer(http.Dir(".")))
