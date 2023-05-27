@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加注册接口">
-      <change afterPath="$PROJECT_DIR$/app/args/contact.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/args/pagearg.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controller/contract.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/contract.go" afterDir="false" />
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加创建社区接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/contract.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/contract.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.editor"
+    "settings.editor.selected.configurable": "preferences.keymap"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -75,11 +73,6 @@
       <filePath value="$PROJECT_DIR$/app/main.go" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build fastIM/app" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,7 +83,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -100,7 +105,9 @@
     <MESSAGE value="feat: 数据库初始化" />
     <MESSAGE value="feat: 添加登录接口" />
     <MESSAGE value="feat: 添加注册接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加注册接口" />
+    <MESSAGE value="feat: 增加添加好友接口" />
+    <MESSAGE value="feat: 添加创建社区接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加创建社区接口" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

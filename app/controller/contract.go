@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fastIM/app/args"
+	"fastIM/app/model"
 	"fastIM/app/service"
 	"fastIM/app/util"
 	"net/http"
@@ -24,5 +25,30 @@ func AddFriend(writer http.ResponseWriter, request *http.Request) {
 		} else {
 			util.RespOk(writer, nil, "好友添加成功")
 		}
+	}
+}
+
+// 加载好友列表
+func LoadFriend(writer http.ResponseWriter, request *http.Request) {
+	var arg model.Community
+	//如果这个用的上，那么可以直接
+	util.Bind(request, &arg)
+	com, err := concatService.CreateCommunity(arg)
+	if err != nil {
+		util.RespFail(writer, err.Error())
+	} else {
+		util.RespOk(writer, com, "")
+	}
+}
+
+// 创建群
+func CreateCommunity(writer http.ResponseWriter, request *http.Request) {
+	var arg model.Community
+	util.Bind(request, &arg)
+	com, err := concatService.CreateCommunity(arg)
+	if err != nil {
+		util.RespFail(writer, err.Error())
+	} else {
+		util.RespOk(writer, com, "")
 	}
 }

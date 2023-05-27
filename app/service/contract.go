@@ -76,3 +76,46 @@ func (c *ContactService) SearchFriendByName(mobile string) model.User {
 	model.DbEngine.Where("mobile = ?", mobile).Get(&user)
 	return user
 }
+
+//添加群
+func (c *ContactService) CreateCommunity(comm model.Community) (ret model.Community, err error) {
+	if len(comm.Name) == 0 {
+		err = errors.New("缺少群名称")
+		return ret, err
+	}
+	if comm.Ownerid == 0 {
+		err = errors.New("请先登录")
+		return ret, err
+	}
+	com := model.Community{
+		Ownerid: comm.Ownerid,
+	}
+	num, err := model.DbEngine.Count(&com)
+
+	if num > 5 {
+		err = errors.New("一个用户最多只能创建5个群")
+		return com, err
+	} else {
+		comm.Createat = time.Now()
+		session := model.DbEngine.NewSession()
+		session.Begin()
+		_, err = session.InsertOne(&comm)
+		if err != nil {
+			session.Rollback()
+			return com, err
+		}
+		_, err = session.InsertOne(
+			model.Contact{
+				Ownerid:  comm.Ownerid,
+				Dstobj:   comm.Id,
+				Cate:     model.ConcatCateComunity,
+				Createat: time.Now(),
+			})
+		if err != nil {
+			session.Rollback()
+		} else {
+			session.Commit()
+		}
+		return com, err
+	}
+}
