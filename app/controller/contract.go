@@ -32,14 +32,10 @@ func AddFriend(writer http.ResponseWriter, request *http.Request) {
 
 // 加载好友列表
 func LoadFriend(writer http.ResponseWriter, request *http.Request) {
-	var arg model.Community
+	var arg args.ContactArg
 	util.Bind(request, &arg)
-	com, err := concatService.CreateCommunity(arg)
-	if err != nil {
-		util.RespFail(writer, err.Error())
-	} else {
-		util.RespOk(writer, com, "")
-	}
+	users := concatService.SearchFriend(arg.Userid)
+	util.RespOkList(writer, users, len(users))
 }
 
 // 创建群
@@ -73,4 +69,12 @@ func JoinCommunity(writer http.ResponseWriter, request *http.Request) {
 			util.RespOk(writer, nil, "")
 		}
 	}
+}
+
+// 加载群列表
+func LoadCommunity(writer http.ResponseWriter, request *http.Request) {
+	var arg args.ContactArg
+	util.Bind(request, &arg)
+	communitys := concatService.SearchCommunity(arg.Userid)
+	util.RespOkList(writer, communitys, len(communitys))
 }

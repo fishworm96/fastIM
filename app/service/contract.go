@@ -71,6 +71,22 @@ func (c *ContactService) SearchCommunity(userId int64) []model.Community {
 	return coms
 }
 
+// 搜索好友
+func (c ContactService) SearchFriend(userId int64) []model.User {
+	friends := make([]model.Contact, 0)
+	objIds := make([]int64, 0)
+	model.DbEngine.Where("ownerid = ? and cate = ?", userId, model.ConcatCateUser).Find(&friends)
+	for _, v := range friends {
+		objIds = append(objIds, v.Dstobj)
+	}
+	users := make([]model.User, 0)
+	if len(objIds) == 0 {
+		return users
+	}
+	model.DbEngine.In("id", objIds).Find(&users)
+	return users
+}
+
 // 根据姓名搜索用户
 func (c *ContactService) SearchFriendByName(mobile string) model.User {
 	user := model.User{}

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加websocket接口">
-      <change afterPath="$PROJECT_DIR$/app/controller/upload.go" afterDir="false" />
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加上传文件接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/chat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/contract.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/contract.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,8 @@
     <MESSAGE value="feat: 添加创建社区接口" />
     <MESSAGE value="feat: 添加加入社群接口" />
     <MESSAGE value="feat: 添加websocket接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加websocket接口" />
+    <MESSAGE value="feat: 添加上传文件接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加上传文件接口" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
