@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加加入社群接口">
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加websocket接口">
+      <change afterPath="$PROJECT_DIR$/app/controller/upload.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/chat.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/contract.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +73,11 @@
       <filePath value="$PROJECT_DIR$/app/main.go" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build fastIM/app" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,9 +113,18 @@
     <MESSAGE value="feat: 增加添加好友接口" />
     <MESSAGE value="feat: 添加创建社区接口" />
     <MESSAGE value="feat: 添加加入社群接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加加入社群接口" />
+    <MESSAGE value="feat: 添加websocket接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加websocket接口" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="*(*&quot;net/http.response&quot;)(824635607008)" />
+        <watch expression="*(*&quot;net/http.response&quot;)(824635607008)" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

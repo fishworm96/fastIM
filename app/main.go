@@ -24,11 +24,12 @@ func registerView() {
 func main() {
 	http.HandleFunc("/user/login", controller.UserLogin)
 	http.HandleFunc("/user/register", controller.UserRegister)
-	http.HandleFunc("/contact/add_friend", controller.AddFriend)
+	http.HandleFunc("/contact/addfriend", controller.AddFriend)
 	http.HandleFunc("/contact/loadfriend", controller.LoadFriend)
 	http.HandleFunc("/contact/createcommunity", controller.CreateCommunity)
 	http.HandleFunc("/contact/joincommunity", controller.JoinCommunity)
 	http.HandleFunc("/chat", controller.Chat)
+	http.HandleFunc("/attach/upload", controller.FileUpload)
 
 	// 提过静态资源目录支持
 	http.Handle("/asset/", http.FileServer(http.Dir(".")))

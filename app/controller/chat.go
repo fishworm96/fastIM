@@ -123,6 +123,7 @@ func AddGroupId(userId, gid int64) {
 	rwlocker.Unlock()
 }
 
+// 校验token是否合法
 func checkToken(userId int64, token string) bool {
 	user := UserService.Find(userId)
 	return user.Token == token
@@ -163,7 +164,7 @@ func recvproc(node *Node) {
 
 // 发送消息，发送到信息的管道
 func sendMsg(userId int64, msg []byte) {
-	rwlocker.RLocker()
+	rwlocker.RLock()
 	node, ok := clientMap[userId]
 	rwlocker.RUnlock()
 	if ok {
