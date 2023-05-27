@@ -1,10 +1,11 @@
 package main
 
 import (
-	"fastIM/app/controller"
 	"log"
 	"net/http"
 	"text/template"
+
+	"fastIM/app/controller"
 )
 
 func registerView() {
@@ -26,6 +27,7 @@ func main() {
 	http.HandleFunc("/contact/add_friend", controller.AddFriend)
 	http.HandleFunc("/contact/loadfriend", controller.LoadFriend)
 	http.HandleFunc("/contact/createcommunity", controller.CreateCommunity)
+	http.HandleFunc("/contact/joincommunity", controller.JoinCommunity)
 
 	// 提过静态资源目录支持
 	http.Handle("/asset/", http.FileServer(http.Dir(".")))

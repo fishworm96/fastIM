@@ -119,3 +119,27 @@ func (c *ContactService) CreateCommunity(comm model.Community) (ret model.Commun
 		return com, err
 	}
 }
+
+// 根据名字搜索社群
+func (c *ContactService) SearchCommunityByName(cname string) model.Community {
+	com := model.Community{}
+	model.DbEngine.Where("name = ?", cname).Get(&com)
+	return com
+}
+
+// 用户加群
+func (c *ContactService) JoinCommunity(userId, comId int64) error {
+	cot := model.Contact{
+		Ownerid: userId,
+		Dstobj:  comId,
+		Cate:    model.ConcatCateComunity,
+	}
+	model.DbEngine.Get(&cot)
+	if cot.Id == 0 {
+		cot.Createat = time.Now()
+		_, err := model.DbEngine.InsertOne(cot)
+		return err
+	} else {
+		return nil
+	}
+}
