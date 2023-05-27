@@ -2,37 +2,38 @@ package service
 
 import (
 	"errors"
-	"fastIM/app/model"
-	"fastIM/app/util"
 	"fmt"
 	"math/rand"
 	"time"
+
+	"fastIM/app/model"
+	"fastIM/app/util"
 )
 
 type UserService struct{}
 
-//用户登录
+// 用户登录
 func (s *UserService) Login(mobile, plainpwd string) (user model.User, err error) {
-	//数据库操作
+	// 数据库操作
 	loginUser := model.User{}
 	model.DbEngine.Where("mobile = ?", mobile).Get(&loginUser)
 	if loginUser.Id == 0 {
 		return loginUser, errors.New("用户不存在")
 	}
-	//判断密码是否正确
+	// 判断密码是否正确
 	if !util.ValidatePasswd(plainpwd, loginUser.Salt, loginUser.Passwd) {
 		return loginUser, errors.New("密码不正确")
 	}
-	//刷新用户登录的token值
+	// 刷新用户登录的token值
 	token := util.GenRandomStr(32)
 	loginUser.Token = token
 	model.DbEngine.ID(loginUser.Id).Cols("token").Update(&loginUser)
 
-	//返回新用户信息
+	// 返回新用户信息
 	return loginUser, nil
 }
 
-//用户注册
+// 用户注册
 func (s *UserService) UserRegister(mobile, plainPwd, nickname, avatar, sex string) (user model.User, err error) {
 	registerUser := model.User{}
 	_, err = model.DbEngine.Where("mobile = ?", mobile).Get(&registerUser)
@@ -55,4 +56,11 @@ func (s *UserService) UserRegister(mobile, plainPwd, nickname, avatar, sex strin
 	_, err = model.DbEngine.InsertOne(&registerUser)
 
 	return registerUser, err
+}
+
+// 查找某个用户
+func (s *UserService) Find(userId int64) (user model.User) {
+	findUser := model.User{}
+	model.DbEngine.Id(userId).Get(&findUser)
+	return findUser
 }

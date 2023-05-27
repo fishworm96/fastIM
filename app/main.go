@@ -28,6 +28,7 @@ func main() {
 	http.HandleFunc("/contact/loadfriend", controller.LoadFriend)
 	http.HandleFunc("/contact/createcommunity", controller.CreateCommunity)
 	http.HandleFunc("/contact/joincommunity", controller.JoinCommunity)
+	http.HandleFunc("/chat", controller.Chat)
 
 	// 提过静态资源目录支持
 	http.Handle("/asset/", http.FileServer(http.Dir(".")))

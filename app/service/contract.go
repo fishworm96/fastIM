@@ -2,8 +2,9 @@ package service
 
 import (
 	"errors"
-	"fastIM/app/model"
 	"time"
+
+	"fastIM/app/model"
 )
 
 type ContactService struct{}
@@ -77,7 +78,7 @@ func (c *ContactService) SearchFriendByName(mobile string) model.User {
 	return user
 }
 
-//添加群
+// 添加群
 func (c *ContactService) CreateCommunity(comm model.Community) (ret model.Community, err error) {
 	if len(comm.Name) == 0 {
 		err = errors.New("缺少群名称")
@@ -125,6 +126,18 @@ func (c *ContactService) SearchCommunityByName(cname string) model.Community {
 	com := model.Community{}
 	model.DbEngine.Where("name = ?", cname).Get(&com)
 	return com
+}
+
+func (c *ContactService) SearchCommunityIds(userId int64) (comIds []int64) {
+	// 	获取用户全部群ID
+	conconts := make([]model.Contact, 0)
+	comIds = make([]int64, 0)
+
+	model.DbEngine.Where("ownerid = ? and cate = ?", userId, model.ConcatCateComunity).Find(&conconts)
+	for _, v := range conconts {
+		comIds = append(comIds, v.Dstobj)
+	}
+	return comIds
 }
 
 // 用户加群

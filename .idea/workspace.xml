@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加创建社区接口">
-      <change afterPath="$PROJECT_DIR$/app/controller/chat.go" afterDir="false" />
+    <list default="true" id="ad0df80d-8045-4268-b853-b24e19290006" name="Changes" comment="feat: 添加加入社群接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/contract.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/chat.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/service/contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/contract.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
@@ -110,7 +110,8 @@
     <MESSAGE value="feat: 添加注册接口" />
     <MESSAGE value="feat: 增加添加好友接口" />
     <MESSAGE value="feat: 添加创建社区接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加创建社区接口" />
+    <MESSAGE value="feat: 添加加入社群接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加加入社群接口" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
