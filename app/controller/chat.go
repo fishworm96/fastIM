@@ -12,10 +12,10 @@ import (
 	"gopkg.in/fatih/set.v0"
 )
 
-// 本核心在于形成 userid 和 Node的映射关系
+// 本核心在于形成userid和Node的映射关系
 type Node struct {
 	Conn *websocket.Conn
-	//	并行转窜行
+	// 并行转串行,
 	DataQueue chan []byte
 	GroupSets set.Interface
 }
@@ -58,11 +58,11 @@ func dispatch(data []byte) {
 			}
 		}
 	case CmdHeart:
-		// 	检测客户端的心跳
+		// 检测客户端的心跳
 	}
 }
 
-// userid 和 Node 映射关系表
+// userid和Node映射关系表
 var clientMap map[int64]*Node = make(map[int64]*Node, 0)
 
 // 读写锁
@@ -74,7 +74,7 @@ func Chat(writer http.ResponseWriter, request *http.Request) {
 	id := query.Get("id")
 	token := query.Get("token")
 	userId, _ := strconv.ParseInt(id, 10, 64)
-	// 	校验token是否合法
+	// 校验token是否合法
 	islegal := checkToken(userId, token)
 
 	conn, err := (&websocket.Upgrader{
@@ -87,7 +87,7 @@ func Chat(writer http.ResponseWriter, request *http.Request) {
 		log.Println(err.Error())
 		return
 	}
-	// 	获得websocket连接conn
+	// 获得websocket链接conn
 	node := &Node{
 		Conn:      conn,
 		DataQueue: make(chan []byte, 50),
@@ -104,29 +104,24 @@ func Chat(writer http.ResponseWriter, request *http.Request) {
 	clientMap[userId] = node
 	rwlocker.Unlock()
 
-	// 	开启协程处理发送逻辑
+	// 开启协程处理发送逻辑
 	go sendproc(node)
 
-	// 	开启协程完成接收逻辑
+	// 开启协程完成接收逻辑
 	go recvproc(node)
 
 	sendMsg(userId, []byte("welcome!"))
 }
 
+// 添加新的群ID到用户的groupset中
 func AddGroupId(userId, gid int64) {
-	//	取得 node
+	// 取得node
 	rwlocker.Lock()
 	node, ok := clientMap[userId]
 	if ok {
 		node.GroupSets.Add(gid)
 	}
 	rwlocker.Unlock()
-}
-
-// 校验token是否合法
-func checkToken(userId int64, token string) bool {
-	user := UserService.Find(userId)
-	return user.Token == token
 }
 
 // 发送逻辑
@@ -139,10 +134,6 @@ func sendproc(node *Node) {
 				log.Println(err.Error())
 				return
 			}
-
-			dispatch(data)
-			// 	todo对data进一步处理
-			fmt.Printf("recv<=%s", data)
 		}
 	}
 }
@@ -157,12 +148,12 @@ func recvproc(node *Node) {
 		}
 
 		dispatch(data)
-		// 	todo 对 data 进一步处理
+		// todo对data进一步处理
 		fmt.Printf("recv<=%s", data)
 	}
 }
 
-// 发送消息，发送到信息的管道
+// 发送消息,发送到消息的管道
 func sendMsg(userId int64, msg []byte) {
 	rwlocker.RLock()
 	node, ok := clientMap[userId]
@@ -170,4 +161,10 @@ func sendMsg(userId int64, msg []byte) {
 	if ok {
 		node.DataQueue <- msg
 	}
+}
+
+// 校验token是否合法
+func checkToken(userId int64, token string) bool {
+	user := UserService.Find(userId)
+	return user.Token == token
 }
